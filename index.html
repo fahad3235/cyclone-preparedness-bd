@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyclone Preparedness BD</title>
+<meta name="description" content="Offline bilingual (English/Bangla) cyclone preparedness app for Bangladesh: warning signals, checklists, family emergency plan and myth-or-fact quiz.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div>
+      <h1 id="appTitle">Cyclone Preparedness BD</h1>
+      <p id="tagline"></p>
+    </div>
+    <button id="langBtn" class="btn lang" type="button">&#x09ac;&#x09be;&#x0982;&#x09b2;&#x09be;</button>
+  </div>
+</header>
+
+<nav class="tabs wrap" role="tablist">
+  <button class="tab-btn active" data-tab="signals" type="button"></button>
+  <button class="tab-btn" data-tab="checklists" type="button"></button>
+  <button class="tab-btn" data-tab="plan" type="button"></button>
+  <button class="tab-btn" data-tab="quiz" type="button"></button>
+</nav>
+
+<main class="wrap">
+  <!-- Signals -->
+  <section id="sec-signals" class="tab-sec">
+    <h2 id="signalsTitle"></h2>
+    <p id="signalsIntro" class="intro"></p>
+    <div class="picker card">
+      <label id="signalPickerLabel" for="signalSelect"></label>
+      <select id="signalSelect">
+        <option value="1">Signal I</option>
+        <option value="2">Signal II</option>
+        <option value="3">Signal III</option>
+        <option value="4">Signal IV</option>
+        <option value="5">Signal V-VII</option>
+        <option value="6">Signal VIII-X</option>
+        <option value="7">Signal XI</option>
+      </select>
+      <p id="signalPickerHint" class="hint"></p>
+      <div id="signalAction" class="action-box"></div>
+      <p id="dangerNote" class="danger-note"></p>
+    </div>
+    <div id="signalCards" class="sig-grid"></div>
+  </section>
+
+  <!-- Checklists -->
+  <section id="sec-checklists" class="tab-sec hidden">
+    <h2 id="checklistTitle"></h2>
+    <p id="checklistIntro" class="intro"></p>
+    <div class="overall card">
+      <span id="overallLabel"></span>
+      <strong id="overallText">0%</strong>
+      <div class="bar"><div class="bar-fill" id="overallBar" style="width:0%"></div></div>
+    </div>
+    <div id="checklistContainer"></div>
+  </section>
+
+  <!-- Family plan -->
+  <section id="sec-plan" class="tab-sec hidden">
+    <h2 id="planTitle"></h2>
+    <p id="planIntro" class="intro"></p>
+    <form class="card plan-form" onsubmit="return false;">
+      <div class="field">
+        <label for="meetingPoint"></label>
+        <input id="meetingPoint" type="text" maxlength="120" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="shelter"></label>
+        <input id="shelter" type="text" maxlength="120" autocomplete="off">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="contact1Name"></label>
+          <input id="contact1Name" type="text" maxlength="80" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="contact1Phone"></label>
+          <input id="contact1Phone" type="tel" maxlength="20" autocomplete="off" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="contact2Name"></label>
+          <input id="contact2Name" type="text" maxlength="80" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="contact2Phone"></label>
+          <input id="contact2Phone" type="tel" maxlength="20" autocomplete="off" inputmode="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label for="planNotes"></label>
+        <textarea id="planNotes" rows="3" maxlength="400"></textarea>
+      </div>
+      <p id="planMsg" class="msg"></p>
+      <div class="btn-row">
+        <button id="savePlanBtn" class="btn primary" type="button"></button>
+        <button id="clearPlanBtn" class="btn ghost" type="button"></button>
+        <button id="printPlanBtn" class="btn ghost" type="button"></button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Quiz -->
+  <section id="sec-quiz" class="tab-sec hidden">
+    <h2 id="quizTitle"></h2>
+    <p id="quizIntro" class="intro"></p>
+    <div id="quizBox" class="card quiz-box"></div>
+  </section>
+</main>
+
+<footer class="wrap footer">
+  <p id="footerText"></p>
+</footer>
+
+<script src="js/logic.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
